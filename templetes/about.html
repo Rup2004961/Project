@@ -1,0 +1,34 @@
+<h1 style="background-color: rgb(101, 216, 47);color: beige;*{margin: 0;padding: 0;text-overflow: ellipsis;}">about page</h1>
+
+    <p style="margin: 53px;padding: 23px;text-shadow: 3px aqua;background-color: chartreuse;box-sizing: border-box;color: darkorange;* {margin:0; padding: 0;}  ;">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint deleniti molestias ea quae exercitationem, optio voluptatum magnam facilis? Qui, omnis.
+</p>
+
+<p>
+    <ul>
+        <li><a href="{% url 'homepage' %}">home</a></li>
+        <li><a href="{% url 'aboutpage' %}">about</a></li>
+        <li><a href="{% url 'contactpage' %}">contact</a></li>
+    </ul>
+</p>
+
+{% if prediction %}
+    <p>predicted crop is :{{prediction }}</p>
+{% endif %}
+
+
+<form method="post">
+    {%csrf_token%}
+    <label for="longitude">please input longitude</label>
+    <input type="number" name="longitude" id="longitude"><br><br>
+
+    <label for="soil_moisture">please input soil_moisture</label>
+    <input type="number" name="soil_moisture" id="soil_moisture"><br><br>
+
+    <label for="temperature">please input temperature</label>
+    <input type="number" name="temperature" id="temperature"><br><br>
+
+
+    <button type="submit">GET PREDICTION crop</button>
+
+</form>
